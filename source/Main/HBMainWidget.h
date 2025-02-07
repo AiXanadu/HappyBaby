@@ -29,7 +29,7 @@ private:
 
 protected:
 	// [event] 关闭
-	void closeEvent(QCloseEvent* _Event) noexcept;
+	void closeEvent(QCloseEvent* _Event) noexcept override;
 
 public:
 	// [opt] 设置加载

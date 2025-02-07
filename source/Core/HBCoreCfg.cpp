@@ -65,6 +65,12 @@ void HBCoreCfg::set(const QString& _Domain, const QString& _Key, const QVariant&
 }
 
 // [get] 值
+QVariant HBCoreCfg::get(const QString& _Domain, const QString& _Key) const noexcept
+{
+	return HBCoreCfg::get(_Domain, _Key, QVariant());
+}
+
+// [get] 值
 QVariant HBCoreCfg::get(const QString& _Domain, const QString& _Key, const QVariant& _Default) const noexcept
 {
 	if(nullptr == _Domain || nullptr == _Key)

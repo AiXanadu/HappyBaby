@@ -32,7 +32,10 @@ public:
 	virtual void set(const QString& _Domain, const QString& _Key, const QVariant& _Value) noexcept final;
 
 	// [get] 值
-	virtual QVariant get(const QString& _Domain, const QString& _Key, const QVariant& _Default = QVariant()) const noexcept final;
+	virtual QVariant get(const QString& _Domain, const QString& _Key) const noexcept final;
+
+	// [get] 值
+	virtual QVariant get(const QString& _Domain, const QString& _Key, const QVariant& _Default) const noexcept final;
 };
 
 #endif
