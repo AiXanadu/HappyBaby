@@ -12,9 +12,18 @@ namespace Ui
 QT_END_NAMESPACE
 
 // 主界面
+struct PDMainWidget;
+typedef struct PDMainWidget			PDMainWidget;
 class HBMainWidget : public QWidget
 {
 Q_OBJECT
+
+private:
+	// 私有数据
+	PDMainWidget*				d_ptr;
+
+	// UI
+	Ui::HBMainWidget*			ui;
 
 public:
 	// constructor
@@ -22,10 +31,6 @@ public:
 
 	// destructor
 	~HBMainWidget() noexcept override;
-
-private:
-	// UI
-	Ui::HBMainWidget*			ui;
 
 protected:
 	// [event] 关闭
@@ -37,6 +42,10 @@ public:
 
 	// [opt] 设置保存
 	virtual void coreCfgSave() noexcept final;
+
+public:
+	// [opt] 加载所有游戏
+	virtual void gameLoad() noexcept final;
 };
 
 #endif

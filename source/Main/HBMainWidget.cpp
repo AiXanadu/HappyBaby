@@ -1,15 +1,27 @@
 ﻿#include <source/Main/HBMainWidget.h>
 #include "ui_HBMainWidget.h"
 #include <source/Core/HBCoreCfg.h>
+#include <source/Core/HBCoreGame.h>
+
+
+
+// 主界面
+struct PDMainWidget
+{
+	// 游戏列表
+	std::map<QWidget*, HBCoreGame*>			gameArray;
+};
 
 
 
 // constructor
 HBMainWidget::HBMainWidget(QWidget *_Parent) noexcept : QWidget(_Parent), ui(new Ui::HBMainWidget)
 {
+	d_ptr = new(std::nothrow) PDMainWidget();
 	ui->setupUi(this);
 	setWindowTitle(tr(u8"HappyBaby"));
 	setWindowIcon(QIcon(":/LOGO.ico"));
+	gameLoad();
 	coreCfgLoad();
 }
 
@@ -17,6 +29,7 @@ HBMainWidget::HBMainWidget(QWidget *_Parent) noexcept : QWidget(_Parent), ui(new
 HBMainWidget::~HBMainWidget() noexcept
 {
 	delete ui;
+	delete d_ptr;
 }
 
 
@@ -56,4 +69,11 @@ void HBMainWidget::coreCfgSave() noexcept
 	HBCoreCfg::example()->set("Main", "AreaY", vAreaY);
 	HBCoreCfg::example()->set("Main", "AreaW", vAreaW);
 	HBCoreCfg::example()->set("Main", "AreaH", vAreaH);
+}
+
+
+
+// [opt] 加载所有游戏
+void HBMainWidget::gameLoad() noexcept
+{
 }
