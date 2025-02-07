@@ -26,6 +26,17 @@ public:
 private:
 	// UI
 	Ui::HBMainWidget*			ui;
+
+protected:
+	// [event] 关闭
+	void closeEvent(QCloseEvent* _Event) noexcept;
+
+public:
+	// [opt] 设置加载
+	virtual void coreCfgLoad() noexcept final;
+
+	// [opt] 设置保存
+	virtual void coreCfgSave() noexcept final;
 };
 
 #endif
